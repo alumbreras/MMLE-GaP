@@ -6,7 +6,7 @@ Code related to the paper:
 
 Filstroff L., Lumbreras A., Févotte C. 
 
-*International Conference on Machine Learning (2018) *
+*International Conference on Machine Learning (2018)*
 
 R/Rcpp implementation of MMLE-GaP and related algorithms.
 
