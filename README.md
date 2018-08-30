@@ -3,6 +3,7 @@
 Code related to the paper:
 
 **Closed-form Marginal Likelihood in Gamma-Poisson Matrix Factorization**
+
 Filstroff L., Lumbreras A., Févotte C. 
 *International Conference on Machine Learning (2018)*
 
