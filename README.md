@@ -2,9 +2,8 @@
 
 Code related to the paper:
 
-**Closed-form Marginal Likelihood in Gamma-Poisson Matrix Factorization**
-
-Filstroff L., Lumbreras A., Févotte C. 
+**Closed-form Marginal Likelihood in Gamma-Poisson Matrix Factorization**<br>
+Filstroff L., Lumbreras A., Févotte C. <br>
 *International Conference on Machine Learning (2018)*
 
 R/Rcpp implementation of MMLE-GaP and related algorithms.
