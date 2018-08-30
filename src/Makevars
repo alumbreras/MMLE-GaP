@@ -1,0 +1,11 @@
+## -*- mode: makefile; -*-
+
+# From /.R/Makevars
+#CXXFLAGS=-O3 -mtune=native -march=native -Wno-unused-variable -Wno-unused-function
+#CXXFLAGS+=-flto -ffat-lto-objects  -Wno-unused-local-typedefs
+
+# From RcppArmadillo documentation:
+# Link against the BLAS and LAPACK libraries, by adding this line in the Makevars and
+# Makevars.win files:
+PKG_LIBS = $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
+

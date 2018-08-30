@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+*.gz
+*.aux
+*.out
+*.log
+*.bbl
+*.blg
+*.dvi
+*.o
+*.so
+*.png
+*.eps
+*.RData
+*.csv
+raw-data/
