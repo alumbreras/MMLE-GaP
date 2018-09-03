@@ -10,7 +10,6 @@ library(ggplot2)
 library(cowplot)
 library(profvis)
 
-#set.seed(1)
 alpha <- 1
 beta <- 1
 maxiters = 1000
@@ -57,32 +56,6 @@ res_CHsaem <- nmf_mmle_mcem(V, initW, maxiters, nsamples, algo='gibbs', mstep="C
 w_traces_CHsaem <- res_CHsaem$W_traces
 times$CHsaem <- res_CHsaem$times
 save.image("experiment.RData")
-
-
-# Show evolution of learned dicts
-# par(mfrow=c(3,3), pty='s')
-# atoms <- 1:9
-# for(tr in seq(1,maxiters,by=10)){
-#   for (i in atoms){
-#     W_sample <- w_traces_C[tr,,atoms]
-#     W_sample <- W_sample[,order(-colSums(W_sample))]
-#     maxval <- max(W_sample)
-#     show_digit(W_sample[,i], zlim=c(0,maxval))
-#   }
-#   title(tr)
-# }
-
-# Show final learned of dict 
-# tr <- maxiters
-# atoms <- 1:K
-# W_sample <- w_traces_C[tr,,atoms]
-# W_sample <- W_sample[,order(-colSums(W_sample))]
-# maxval <- max(W_sample)
-# 
-# par(mfrow=c(3,3), pty='s')
-# for (i in atoms){
-#   show_digit(W_sample[,i], zlim=c(0,maxval))
-# }
 
 plot(sort(colSums(res_C$W), decreasing = TRUE)) # plot column norms
 plot(sort(colSums(res_CH$W), decreasing = TRUE)) # plot column norms

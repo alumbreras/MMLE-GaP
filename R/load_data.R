@@ -15,42 +15,6 @@ load_image_file <- function(filename){
   return(V)
 }
 
-#' @export
-#' TODO: delete it or use it to generate also H always
-load_synthetic_data_GaP__ <- function(N=100, W, H=NULL, alpha=1){
-  F <- dim(W)[1]
-  K <- dim(W)[2]
-  H <- matrix(rgamma(K*N, shape=alpha, rate=1), ncol=N) # K x N matrix
-  
-  V <- matrix(NA, nrow=F, ncol=N)
-  for(f in 1:F){
-    for(n in 1:N){
-      V[f,n] <- rpois(1, lambda = W[f,] %*% H[,n])
-    }
-  }
-  V
-}
-
-#' Generates some synthetic matrix (ex: user x movie)
-#' From a chosen W (ex: user x topic)
-#' @return A matrix with a clear structure (ex: block diagonal matrix)
-#' @export
-load_synthetic <- function(){
-  usertopics <- rep(1:5, each=2)
-  movietopics <- rep(1:5, each=10)
-  W <- matrix(0, 10, 5)
-  H <- matrix(0, 5, 50)
-  
-  for(i in 1:10){
-    W[i,usertopics[i]] <- 10  
-  }
-  
-  for(i in 1:50){
-    H[movietopics[i],i] <- 10
-  }
-  V <- W%*%H
-  list(V=V, W=W, H=H)
-}
 
 #' Plot an image from a given row in the data matrix
 #' @param V the whole data matrix

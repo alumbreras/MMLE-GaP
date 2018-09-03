@@ -1,15 +1,11 @@
+# Demonstrates that W converges faster with updates that only use C (no H)
 devtools::load_all()
-# Demonstrate theat W converges faster with updates that only use C (no H)
-
-
 library(dplyr)
 library(tidyr)
 library(reshape2)
 library(ggplot2)
 library(cowplot)
 library(latex2exp)
-
-#set.seed(1)
 
 # generate synthetic data from a GaP model ####
 maxiters = 100
@@ -20,30 +16,13 @@ F <- 4
 N <- 100
 K_star <- 2
 K <- 3
-
-# Testing SAEM
-F <- 500
-N <- 1000
-K_star <- 5
-K <- 10
-
 alpha_star <- 1
 beta_star <- 1
-
-
 alpha <- 1
 beta <- 1
 
-#F <- 4 # AISTATS
-#F <- 500 # ICML
-#F <- 500 # ICML
-
-#W <- (beta/alpha)*t(rdirichlet(K_star, alpha = rep(1,F)))*F # AISTATS
 W <- t(rdirichlet(K_star, alpha = rep(1,F))) # ICML
-#W <- t(rdirichlet(K_star, alpha = rep(1,F)))*F
-W <- t(rdirichlet(K_star, alpha = rep(1,F)))*50 # Cedric
-
-H <- matrix(rgamma(K_star*N, shape=alpha_star, rate=beta_star), ncol=N) # K x N matrix
+H <- matrix(rgamma(K_star*N, shape=alpha_star, rate=beta_star), ncol=N)
 V <- matrix(NA, nrow=F, ncol=N)
 for(f in 1:F){
   for(n in 1:N){
@@ -52,9 +31,9 @@ for(f in 1:F){
 }
 
 cat("Mean/Var =", mean(c(V))/var(c(V)))
+
 # Initialize in the center of potential solutions
 initW <- replicate(K, rowMeans(V)/K) 
-#initW <- matrix(runif(F*K), ncol=K)*1000 # random
 
 # Algorithms -------------------------------------------------------------------
 #V <- V[,colSums(V)>0] # remove empty columns
