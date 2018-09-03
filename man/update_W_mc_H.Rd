@@ -4,10 +4,10 @@
 \alias{update_W_mc_H}
 \title{Maximize w.r.t W using H with multiplicative updates}
 \usage{
-update_W_mc_H(W, V, H_samples)
+update_W_mc_H(W, V, H_samples, updates = 1)
 }
 \arguments{
-\item{W}{the (whole) current dictionary matrix.}
+\item{W}{the current dictionary matrix.}
 
 \item{V}{matrix to be factorized.}
 

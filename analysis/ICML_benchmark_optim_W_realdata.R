@@ -1,5 +1,5 @@
-# Script used in AISTATS paper / Real dataset
-# Demonstrate that W converges faster with updates that only use C (no H)
+# Script used in ICML'18 paper / Real dataset
+# Demonstrates that W converges faster with updates that only use C (no H)
 devtools::load_all()
 
 

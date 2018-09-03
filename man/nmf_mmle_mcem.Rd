@@ -5,8 +5,8 @@
 \title{NMF with MMLE}
 \usage{
 nmf_mmle_mcem(V, initW, maxiters = 100, nsamples = 50, algo = "gibbs",
-  mincrease = "constant", alpha = 1, beta = 1, mstep = "C", L = 10,
-  epsilon = 0.5, burnin = 0.5)
+  mincrease = "constant", alpha = 1, beta = 1, mstep = "C",
+  mult_updates = 1, saem = FALSE, L = 10, epsilon = 0.5, burnin = 0.5)
 }
 \arguments{
 \item{V}{matrix to be factorized}
