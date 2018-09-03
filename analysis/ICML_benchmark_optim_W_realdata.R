@@ -17,7 +17,7 @@ nsamples = 100
 
 # MNIST dataset
 # N <- 100
-# V <- t(load_mnist())
+# V <- data(mnist)
 # F <- dim(V)[1]
 # K <- 15
 # V <- V[,sample(ncol(V),N)]
@@ -25,7 +25,7 @@ nsamples = 100
 # NIPS (full dataset)
 # https://archive.ics.uci.edu/ml/datasets/bag+of+words
 # https://archive.ics.uci.edu/ml/machine-learning-databases/bag-of-words/
-V <- load_nips()
+V <- data(nips)
 F <- dim(V)[1]
 N <- dim(V)[2]
 N <- 1000

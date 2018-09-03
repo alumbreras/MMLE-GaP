@@ -6,6 +6,7 @@ library(reshape2)
 library(ggplot2)
 library(cowplot)
 library(latex2exp)
+library(gtools)
 
 # generate synthetic data from a GaP model ####
 maxiters = 100
@@ -115,7 +116,7 @@ text <- TeX(sprintf('$F=%d, K=%d, K*=%d, N=%d, \\alpha = %.1f, \\beta = %.1f, sa
 
 ggplot(df, aes(x=iteration, y=value, group=k)) + 
   geom_line() + 
-  facet_grid(mstep~.) + 
+  facet_grid(mstep~., scales = "free") + 
   geom_hline(yintercept = as.vector(colSums(W)), linetype='dashed') +
   theme_bw() +
   theme(legend.position = "none",
@@ -125,7 +126,7 @@ ggplot(df, aes(x=iteration, y=value, group=k)) +
 
 ggplot(df, aes(x=time, y=value, group=k)) + 
   geom_line() + 
-  facet_grid(mstep~.) + 
+  facet_grid(mstep~., scales = "free") + 
   geom_hline(yintercept = as.vector(colSums(W)), linetype='dashed') +
   theme_bw() +
   theme(legend.position = "none",
@@ -171,16 +172,20 @@ df <- rbind(df.traces_CH, df.traces_C, df.traces_H, df.traces_Z)
 
 # iterations
 ggplot(df, aes(x=iteration, y=w, color=variable)) + geom_line() + 
-  facet_grid(mstep~.) + geom_hline(yintercept = as.vector(W), linetype='dashed'  ) + 
+  facet_grid(mstep~., scales = "free") + 
+  geom_hline(yintercept = as.vector(W), linetype='dashed'  ) + 
   theme_bw() + theme(legend.position = "none")
+
 # time
 ggplot(df, aes(x=time, y=w, color=variable)) + geom_line() + 
-  facet_grid(mstep~.) + geom_hline(yintercept = as.vector(W), linetype='dashed') + 
+  facet_grid(mstep~., scales = "free") + 
+  geom_hline(yintercept = as.vector(W), linetype='dashed') + 
   theme_bw() + theme(legend.position = "none") + xlab("CPU time (s)")
 
 # facet_grid side by side
 ggplot(df, aes(x=time, y=w, color=variable)) + geom_line() + 
-  facet_grid(.~mstep) + geom_hline(yintercept = as.vector(W), linetype='dashed') + 
+  facet_grid(mstep~., scales = "free") + 
+  geom_hline(yintercept = as.vector(W), linetype='dashed') + 
   theme_bw() + theme(legend.position = "none") + xlab("CPU time (s)")
 
 # Color by columns (F=4, K=3)
