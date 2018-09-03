@@ -1,3 +1,6 @@
+# Toy case where we plot the ELBOs for the EM algorithms 
+# based on C, CH and H. The aim is to understand why 
+# C converges faster
 
 Q1 <- function(theta, E_C, E_lambdas){
   -theta*sum(E_lambdas) + log(theta) * sum(E_C)
