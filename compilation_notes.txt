@@ -1,5 +1,4 @@
 Original:
-
 g++ -std=gnu++11 -I/usr/share/R/include -DNDEBUG  
 	-I"/home/alumbreras/R/x86_64-pc-linux-gnu-library/3.4/Rcpp/include" 
 	-I"/home/alumbreras/R/x86_64-pc-linux-gnu-library/3.4/RcppArmadillo/include" 

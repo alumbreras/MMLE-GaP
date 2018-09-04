@@ -1,0 +1,6 @@
+NAMESPACE should include
+
+useDynLib(rMMLE)
+importFrom(Rcpp, sourceCpp)
+
+These lines are not added by devtools::document()
